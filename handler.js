@@ -12,22 +12,22 @@ module.exports.getItinerarios = async (event) => {
   const eta = event.queryStringParameters.eta;
   const tiempo_transito = event.queryStringParameters.tiempo_transito;
 
-  // const resultado = itinerarios.filter((itinerario) => {
-  //   let coincide = true;
-  //   if (destino && itinerario.pod.name !== destino) {
-  //     coincide = false;
-  //   }
-  //   if (origen && itinerario.pol.name !== origen) {
-  //     coincide = false;
-  //   }
-  //   if (eta && itinerario.eta !== eta) {
-  //     coincide = false;
-  //   }
-  //   if (tiempo_transito && itinerario.transit_time !== tiempo_transito) {
-  //     coincide = false;
-  //   }
-  //   return coincide;
-  // });
+  const resultado = itinerarios.filter((itinerario) => {
+    let coincide = true;
+    if (destino && itinerario.pod.name !== destino) {
+      coincide = false;
+    }
+    if (origen && itinerario.pol.name !== origen) {
+      coincide = false;
+    }
+    if (eta && itinerario.eta !== eta) {
+      coincide = false;
+    }
+    if (tiempo_transito && itinerario.transit_time !== tiempo_transito) {
+      coincide = false;
+    }
+    return coincide;
+  });
 
   const params = {
     TableName: 'itinerarios',
