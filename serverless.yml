@@ -59,17 +59,10 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-  itinerary: 
-    handler: handler.itinerary
+  getItinerarios:
+    handler: handler.getItinerarios
     events:
       - http:
+          path: itinerarios
           method: GET
-          path: /itinerary
-  newItinerary: 
-    handler: handler.newItinerary
-    events:
-      - http:
-          method: GET
-          path: /newItinerary
+          
